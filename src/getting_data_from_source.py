@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup
 import urllib.request
 import requests
 import os
-import pandas 
 from datetime import date
 
 def get_html_from_source():
@@ -47,6 +46,6 @@ def download_zips_and_unzip():
         
         except Exception as e:
             print(f"An error occurred: {e}")
-            
-            
-download_zips_and_unzip()
+
+
+download_zips_and_unzip()            
