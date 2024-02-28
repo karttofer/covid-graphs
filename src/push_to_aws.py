@@ -2,6 +2,8 @@ import boto3
 from datetime import datetime, timezone
 from botocore.exceptions import ClientError
 from color_logs import use__logger
+from pathlib import Path
+from os import path
 
 current_datetime = 'app-covid-files-' + str(datetime.now(timezone.utc).date())
 
@@ -34,4 +36,14 @@ def check_bucket_exist(bucket_name, bucket_region=None):
         for bucket in bucket__list['Buckets']:
             if bucket['Name'] == current_datetime:
                 return 409 
+            
+def list_files_in_folder(folder_path):
+    folder_path = Path(folder_path)
+    exist_folder = Path.exists(folder_path)    
+    
+    if exist_folder == False:
+        return 404
+    else:
+        files = [f.name for f in folder_path.iterdir() if f.is_file()]
+        return files
             

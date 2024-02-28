@@ -46,6 +46,3 @@ def download_zips_and_unzip():
         
         except Exception as e:
             print(f"An error occurred: {e}")
-
-
-download_zips_and_unzip()            

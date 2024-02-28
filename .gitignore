@@ -4,3 +4,9 @@
 # Packpages
 site-packages
 configs
+
+# Python
+__pycache__
+
+# History
+src/covid__history
